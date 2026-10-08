@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="링크를 QR 코드로, 간편하게. 무료 URL QR 생성 및 JPG 다운로드.">
+  <meta name="theme-color" content="#f6f7f2">
+  <title>QR 변환기 · SMART QR</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="assets/qrcode.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./" aria-label="QR 변환기 처음으로"><img src="assets/chameleon.svg" alt="초록색 카멜레온 캐릭터" width="62" height="54"><span>QR 변환기<span class="brand-caption">작은 코드, 새로운 연결</span></span></a>
+    <div class="wordmark" aria-label="SMART QR 로고"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M2 10V2h8M18 2h8v8M26 18v8h-8M10 26H2v-8"/><path d="M9 9h4v4H9zM17 9h3v3h-3zM9 17h3v3H9zM17 17h3v3h-3z"/></svg><span>SMART<span class="qr-word"> QR</span></span></div>
+  </header>
+  <main id="workspace" class="workspace">
+    <section class="intro" aria-labelledby="heading">
+      <div class="eyebrow"><span class="live-dot"></span> A SMALL CODE. A BIG CONNECTION.</div>
+      <h1 id="heading">당신의 링크를,<br><span>하나의 QR로.</span><span class="heading-dot">●</span></h1>
+      <p class="intro-copy">복잡한 주소 대신, 간편한 스캔 한 번.<br>URL을 입력하면 나만의 QR 코드가 완성됩니다.</p>
+    </section>
+    <section id="result" class="result" aria-label="생성된 QR 코드" hidden>
+      <div class="result-heading"><span class="live-dot"></span> 준비됐어요. 이제 연결해 보세요.</div>
+      <button id="qr-download" class="qr-download" type="button" aria-label="QR 코드를 JPG 파일로 다운로드"><canvas id="qr-canvas" width="1200" height="1200" role="img" aria-label="입력한 URL의 QR 코드"></canvas><span class="download-overlay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg> JPG 다운로드</span></button>
+      <p class="result-help">QR 코드를 클릭하면 <strong>JPG로 저장</strong>됩니다.</p>
+      <p id="result-url" class="result-url"></p>
+    </section>
+    <div class="form-wrap">
+      <form id="url-form" novalidate>
+        <label for="url-input" class="input-label">연결하고 싶은 URL</label>
+        <div class="input-shell"><svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m10 13 4-4m-6 6-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0m2 3 1-1a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0"/></svg><input id="url-input" type="url" inputmode="url" autocomplete="url" placeholder="https://example.com" aria-describedby="form-error form-tip" required><button id="submit-button" type="submit">확인 <span aria-hidden="true">↗</span></button></div>
+        <p id="form-error" class="error" role="alert"></p>
+      </form>
+      <p id="form-tip" class="form-tip"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1 2 3v4c0 4 6 7 6 7s6-3 6-7V3L8 1Z"/><path d="m5 7 2 2 4-4"/></svg> 입력한 링크는 저장되지 않아요.</p>
+    </div>
+    <div class="steps" aria-label="사용 방법"><span><b>01</b> URL 입력</span><span class="step-line"></span><span><b>02</b> QR 생성</span><span class="step-line"></span><span><b>03</b> 클릭해서 저장</span></div>
+  </main>
+  <footer><span>연결은 가볍게. 가능성은 무한하게.</span><span>MADE FOR CONNECTION <span class="footer-star">✳</span></span></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
